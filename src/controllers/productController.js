@@ -1,7 +1,7 @@
 import Product from "../model/product";
 // Rotas para CRUD de produtos
 
-class productController {
+class ProductController {
 //app.post('/products', async (req, res) => {
 static createProducts = async (req, res) => {
     try {
@@ -35,3 +35,4 @@ const productId = req.params.id;
     }
 };
 }
+export default ProductController;

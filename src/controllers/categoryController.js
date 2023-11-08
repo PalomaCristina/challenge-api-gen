@@ -1,9 +1,8 @@
 import Category from "../model/category";
 
 // Rotas para CRUD de categorias
-class categogyController {
+class CategogyController {
 
-    //app.post('/categories', async (req, res) => {
     static createCategory = async (req, res) => {
         try {
             const category = new Category(req.body);
@@ -14,10 +13,10 @@ class categogyController {
         }
     };
 
-//app.get('/categories', async (req, res) => {
 static searchCategory = async (req, res) => {
     const categories = await Category.find();
     res.json(categories);
 };
 
 }
+export default CategogyController;
