@@ -1,19 +1,9 @@
-import fastify from 'fastify';
 import 'dotenv/config'
+import app from "./src/app.js";
 
-const app = fastify()
-const HOST = '0.0.0.0';
+const HOST = process.env.HOST;
+const PORT = process.env.PORT || 5001;
 
-var PORT = process.env.PORT
-
-app.get('/', (req, res) => {
-    res.send('hello')
-})
-
-app.listen({ port: PORT ? Number(PORT, HOST) : 5001 }, (err) => {
-    if (err) {
-        console.error(err)
-        process.exit(1)
-    }
-    console.log(`Server listening at port ${PORT}`);
-})
+app.listen(PORT, () => {
+    console.log(`Server running on port: ${PORT}`);
+});
