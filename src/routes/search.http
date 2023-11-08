@@ -1,0 +1,19 @@
+@baseUrl = http://localhost:5002/ 
+
+get {{baseUrl}}products
+
+###
+post {{baseUrl}}products/create
+Content-Type: application/json
+
+{"name":"teclado logitech", "price": 350, "category":"654c1a9d9d87da43af2eb338"}
+
+###
+post {{baseUrl}}categories/create
+
+{
+    "name":"informatica"
+}
+###
+
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Produto1", "price": 50, "category":"categoria_id"}' http://localhost:3000/products'{"name":"Produto1", "price": 50, "category":"categoria_id"}'

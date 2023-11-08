@@ -1,7 +1,7 @@
 import express from "express";
 import db from "./configDb/index.js";
-//import bodyParser from "body-parser";
-//import routes from "./routes/index.js";
+
+import routes from "./routes/index.js";
 
 db.on("error", console.log.bind(console, 'Connection Error with db!'));
 db.once("open", () => {
@@ -11,6 +11,6 @@ const app =  express();
 
 app.use(express.json());
 
-//routes(app);
+routes(app);
 
 export default app;
