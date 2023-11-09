@@ -1,4 +1,4 @@
-import Product from "../model/product.js";
+import Product from "../model/productSchema.js";
 // Rotas para CRUD de produtos
 
 class ProductController {
@@ -18,7 +18,7 @@ class ProductController {
     };
 
     // Rota para calcular o valor das parcelas do produto
-    static getInstallments = async (req, res) => {
+    static simulationPlots = async (req, res) => {
         const productId = req.params.id;
         const product = await Product.findById(productId);
         if (!product) {

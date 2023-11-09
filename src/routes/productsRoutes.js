@@ -6,7 +6,7 @@ const productRouter = express.Router()
 
 productRouter 
     .get('/products', ProductController.searchProducts)
-    .get('/products/installment/:id', ProductController.getInstallments)
+    .get('/products/plots/:id', ProductController.simulationPlots)
     .post('/products/create', ProductController.createProducts)
     .put('/products/:id', ProductController.putProduct)
     .delete('/products/delete/:id', ProductController.deleteProduct)

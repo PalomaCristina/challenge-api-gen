@@ -6,14 +6,21 @@ get {{baseUrl}}products
 post {{baseUrl}}products/create
 Content-Type: application/json
 
-{"name":"teclado logitech", "price": 350, "category":"654c1a9d9d87da43af2eb338"}
+{"name":"Kawasaki Vulcan S", "price": 47.000, "category":"654c3c33556effbd7c137ee3"}
 
 ###
 post {{baseUrl}}categories/create
+Content-Type: application/json
 
 {
-    "name":"informatica"
+    "name":"Moveis", 
+    "interestRate": 1
 }
 ###
+get {{baseUrl}}categories
+###
+DELETE {{baseUrl}}categories/654c3ad8f32b939df7440249
+###
+curl -X GET -H "Content-Type: application/json" -d '{"price":100, "interestRate":10, "numberOfInstallm"
 
 curl -X POST -H "Content-Type: application/json" -d '{"name":"Produto1", "price": 50, "category":"categoria_id"}' http://localhost:3000/products'{"name":"Produto1", "price": 50, "category":"categoria_id"}'

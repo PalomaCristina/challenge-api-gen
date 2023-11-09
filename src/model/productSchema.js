@@ -4,9 +4,15 @@ const Schema = mongoose.Schema
 const ProductSchema = new Schema(
     {
         id: { type: String },
-        name: String,
-        description: String,
-        price: Number,
+        name: {
+            type: String,
+            required: true
+        },
+        description: { type: String },
+        price: {
+            type: Number,
+            required: true
+        },
         category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
     },
     {
