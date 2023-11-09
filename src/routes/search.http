@@ -20,7 +20,15 @@ Content-Type: application/json
 get {{baseUrl}}categories
 ###
 DELETE {{baseUrl}}categories/654c3ad8f32b939df7440249
+
+###
+POST {{baseUrl}}products/plots/654c3c49556effbd7c137ee5
+{"numberOfInstallments":12}
+###
+curl -X GET -H "Content-Type: application/json" -d '{"price":100, "interestRate":10, "numberOfInstallments":12}' http://localhost:3000/products/:id/calculate
+
 ###
 curl -X GET -H "Content-Type: application/json" -d '{"price":100, "interestRate":10, "numberOfInstallm"
 
 curl -X POST -H "Content-Type: application/json" -d '{"name":"Produto1", "price": 50, "category":"categoria_id"}' http://localhost:3000/products'{"name":"Produto1", "price": 50, "category":"categoria_id"}'
+

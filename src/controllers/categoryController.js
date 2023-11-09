@@ -12,7 +12,7 @@ class CategoryController {
         }
     };
 
-
+    //pesquisar todas as categorias existentes
     static searchCategory = async (req, res) => {
         const categories = await Category.find();
         res.json(categories);

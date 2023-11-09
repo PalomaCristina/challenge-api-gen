@@ -1,4 +1,5 @@
 import Product from "../model/productSchema.js";
+import Category from "../model/categorySchema.js";
 // Rotas para CRUD de produtos
 
 class ProductController {
@@ -22,15 +23,26 @@ class ProductController {
         const productId = req.params.id;
         const product = await Product.findById(productId);
         if (!product) {
-            res.status(404).json({ error: 'Product not found' });
+            res.status(404).json({ error: 'Product not found'});
         } else {
-            const { price, interestRate, numberOfInstallments } = req.body;
-            const i = interestRate / 100;
-            const n = numberOfInstallments;
-            const installmentValue = (price * i) / (1 - Math.pow(1 + i, -n));
-            res.json({ installmentValue });
+            const { numberOfInstallments } = req.body;
+            // Obtenha a categoria associada ao produto
+            const category = await Category.findById(product.category);
+            if (!category) {
+                res.status(404).json({ error: 'Category not found' });
+            } else {
+                const interestRate = category.interestRate;
+                const i = interestRate / 100;
+                console.log(`simulationPlots - interestRate: ${i}`);
+                const n = numberOfInstallments;
+                console.log(`simulationPlots - numberOfInstallments: ${n}`);
+                console.log(`simulationPlots - product.price: ${product.price}`);
+                const installmentValue = (product.price * i) / (1 - Math.pow(1 + i, -n));
+                res.json({ installmentValue });
+            }
         }
     };
+
     // Rota para deletar um produto
     //app.delete('/products/:id', async (req, res) => {
     static deleteProduct = async (req, res) => {
