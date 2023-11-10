@@ -8,7 +8,7 @@ class CategoryController {
             await category.save();
             res.json(category.toJSON());
         } catch (error) {
-            res.status(500).json({ error: 'Erro ao criar a categoria.', description: error });
+            res.status(500).json({ error: 'Error on creation of category.', description: error });
         }
     };
 
