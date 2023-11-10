@@ -41,7 +41,7 @@ class CategoryController {
             if (!updatedCategory) {
                 res.status(404).json({ error: 'Category not found', description: error });
             } else {
-                res.json(updatedCategory);
+                res.status(201).json({success:true, updatedCategory});
             }
         } catch (error) {
             res.status(500).json({ error: 'Error updating category', description: error });

@@ -1,12 +1,12 @@
-@baseUrl = http://localhost:5002/ 
+@baseUrl = http://localhost:5002/
 
-get {{baseUrl}}products
+get {{baseUrl}}products/
 
 ###
 post {{baseUrl}}products/create
 Content-Type: application/json
 
-{"name":"Kawasaki Vulcan S", "price": 47.000, "category":"654c3c33556effbd7c137ee3"}
+{"name":"TV Samsung", "price": 1.500, "category":"654c3c49556effbd7c137ee5"}
 
 ###
 post {{baseUrl}}categories/create
@@ -19,16 +19,27 @@ Content-Type: application/json
 ###
 get {{baseUrl}}categories
 ###
-DELETE {{baseUrl}}categories/
+DELETE {{baseUrl}}categories/654c3cb1556effbd7c137eea
 
 ###
-POST {{baseUrl}}products/plots/654c3cb1556effbd7c137eea
+POST {{baseUrl}}products/654c3c81556effbd7c137ee7
 Content-Type: application/json
 
 {
-    "numberOfInstallments":12
+    "name":"Moveis de Casa", 
+    "interestRate": 1.5
 }
 
+###
+
+POST {{baseUrl}}products/plots/654c3d4a556effbd7c137ef0
+Content-Type: application/json
+
+{
+    "numberOfInstallments":10
+}
+###
+DELETE {{baseUrl}}products/delete/654c3cb1556effbd7c137eea
 ###
 curl -X GET -H "Content-Type: application/json" -d '{"price":100, "interestRate":10, "numberOfInstallments":12}' http://localhost:3000/products/:id/calculate
 
